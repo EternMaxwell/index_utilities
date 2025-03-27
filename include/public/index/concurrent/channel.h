@@ -21,6 +21,9 @@ struct Sender {
     Sender& operator=(Sender&&)      = default;
     ~Sender()                        = default;
 
+    operator bool() { return queue.operator bool(); }
+    bool operator!() { return !queue; }
+
     template <typename... Args>
     void send(Args&&... args) {
         if (!queue) return;

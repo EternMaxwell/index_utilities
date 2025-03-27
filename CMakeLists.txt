@@ -8,8 +8,8 @@ endif()
 project ("index_utilites")
 
 file (GLOB_RECURSE SOURCES "src/*.cpp" "src/*.c")
-add_library(index_utilites STATIC ${SOURCES})
-target_include_directories(index_utilites PUBLIC "include/public")
-target_include_directories(index_utilites PRIVATE "include/private")
+add_library(index_utilities STATIC ${SOURCES})
+target_include_directories(index_utilities PUBLIC "include/public")
+target_include_directories(index_utilities PRIVATE "include/private")
 
-set_property(TARGET index_utilites PROPERTY CXX_STANDARD 20)
+set_property(TARGET index_utilities PROPERTY CXX_STANDARD 20)
