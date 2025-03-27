@@ -1,18 +1,29 @@
 # Index Utilities
 
+## Table of Content
+
+- [Index Utilities](#index-utilities)
+  - [Table of Content](#table-of-content)
+  - [Integration](#integration)
+  - [Current Modules](#current-modules)
+    - [concurrent](#concurrent)
+      - [`conqueue<T>`](#conqueuet)
+      - [`channel`](#channel)
+    - [traits](#traits)
+
 This is a template utility library dedicated for [epix_engine](https://github.com/EternMaxwell/epix_engine.git)
 
 ## Integration
 
 To integrate the library in your project, use cmake subdirectories and git submodules.
 
-```
+```shell
 git submodule add https://github.com/EternMaxwell/index_utilities <path/to/lib>
 ```
 
 Then in CMakeLists.txt file, add
 
-```
+```cmake
 add_subdirectories(path/to/lib)
 ...
 # your target
@@ -28,11 +39,11 @@ And you are now able to use the library in your project.
 
 Utils for multithread programming.
 
-#### conqueue<T>
+#### `conqueue<T>`
 
 A concurrent FIFO queue.
 
-#### channel
+#### `channel`
 
 This contains 2 structs, `Sender<T>` and `Receiver<T>`, and a function to create a pair of Sender and Receiver `std::tuple<Sender<T>, Receiver<T>> make_channel();`
 
