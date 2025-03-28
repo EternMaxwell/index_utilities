@@ -2,3 +2,4 @@
 #include "index/concurrent/conqueue.h"
 #include "index/traits/template.h"
 #include "index/traits/tuple.h"
+#include "index/traits/variant.h"
