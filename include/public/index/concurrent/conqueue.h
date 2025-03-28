@@ -14,7 +14,7 @@ struct conqueue {
     std::condition_variable cv;
 
    public:
-    conqueue(size_t reserve = 16) { queue.reserve(reserve); }
+    conqueue()                           = default;
     conqueue(const conqueue&)            = delete;
     conqueue(conqueue&&)                 = delete;
     conqueue& operator=(const conqueue&) = delete;
