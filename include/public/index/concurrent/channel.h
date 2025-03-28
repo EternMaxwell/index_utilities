@@ -48,8 +48,11 @@ struct Receiver {
     ~Receiver()                          = default;
 
     std::optional<T> try_receive() { return queue->try_pop(); }
-
     T receive() { return queue->pop(); }
+    Sender<T> create_sender() { return Sender<T>(queue); }
+
+    template <typename T>
+    friend std::tuple<Sender<T>, Receiver<T>> make_channel();
 };
 
 template <typename T>
