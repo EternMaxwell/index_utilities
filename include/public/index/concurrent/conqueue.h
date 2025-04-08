@@ -23,13 +23,13 @@ struct conqueue {
 
     template <typename... Args>
     void emplace(Args&&... args) {
-        std::lock_guard lock(mutex);
+        std::unique_lock lock(mutex);
         queue.emplace_back(std::forward<Args>(args)...);
         cv.notify_one();
     }
 
     std::optional<T> try_pop() {
-        std::lock_guard lock(mutex);
+        std::unique_lock lock(mutex);
         if (queue.empty()) return std::nullopt;
         T value = std::move(queue.front());
         queue.pop_front();
@@ -37,7 +37,7 @@ struct conqueue {
     }
 
     T pop() {
-        std::lock_guard lock(mutex);
+        std::unique_lock lock(mutex);
         cv.wait(lock, [this] { return !queue.empty(); });
         T value = std::move(queue.front());
         queue.pop_front();
