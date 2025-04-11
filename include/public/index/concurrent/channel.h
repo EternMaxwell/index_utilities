@@ -53,8 +53,8 @@ struct Receiver {
     T receive() { return queue->pop(); }
     Sender<T> create_sender() { return Sender<T>(queue); }
 
-    template <typename T>
-    friend std::tuple<Sender<T>, Receiver<T>> make_channel();
+    template <typename U>
+    friend std::tuple<Sender<U>, Receiver<U>> make_channel();
 };
 
 template <typename T>

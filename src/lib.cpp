@@ -1,3 +1,4 @@
+#include "index/array_proxy.h"
 #include "index/concurrent/channel.h"
 #include "index/concurrent/conqueue.h"
 #include "index/traits/template.h"
